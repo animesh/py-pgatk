@@ -1,3 +1,32 @@
+# [setup](https://pgatk.readthedocs.io/en/latest/pypgatk.html#transcripts-dna-to-protein-sequences) 
+
+```
+conda create -n pgatk
+conda activate pgatk
+(pgatk) animeshs@DMED7596:~$ln -s /mnt/f .
+(pgatk) animeshs@DMED7596:~$cd f
+(pgatk) animeshs@DMED7596:~/f$git clone https://github.com/animesh/py-pgatk
+(pgatk) animeshs@DMED7596:~/f$cd py-pgatk/
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$sudo apt install libffi6 dev-libffi6 python3-cffi python3-typed-ast libbz2-dev samtools cufflinks
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$mamba install  python=3.7
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$rm -rf /home/animeshs/miniconda3/envs/pgatk/lib/python3.7/site-packages/typed_ast
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$rm -rf ./miniconda3/envs/pgatk/lib/python3.7/site-packages/typed_ast-1.4.2.dist-info/
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$mamba update --all
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$mamba install typed-ast numpy
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$pip install -r requirements.txt
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$python setup.py install
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.p13.genome.fa.gz
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$wget http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.chr_patch_hapl_scaff.annotation.gtf.gz
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$gunzip  gencode.v38.chr_patch_hapl_scaff.annotation.gtf.gz
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$gunzip  GRCh38.p13.genome.fa.gz
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$gffread -F -w input_fasta.fa -g GRCh38.p13.genome.fa gencode.v38.chr_patch_hapl_scaff.annotation.gtf
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$ wc input_fasta.fa
+ 6440920   9122756 497322862 input_fasta.fa
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$ grep "^>" input_fasta.fa  |wc
+ 258145 2939981 67344456
+```
+
+
 # Python tools for ProteoGenomics Analysis Toolkit
 
 
@@ -79,23 +108,23 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
-  cbioportal-downloader     Command to download the the cbioportal studies
+  cbioportal-downloader(pgatk) animeshs@DMED7596:~/f/py-pgatk$ Command to download the the cbioportal studies
   cbioportal-to-proteindb  Command to translate cbioportal mutation data into
-                           proteindb
-  cosmic-downloader        Command to download the cosmic mutation database
-  cosmic-to-proteindb      Command to translate Cosmic mutation data into
-                           proteindb
-  dnaseq-to-proteindb      Generate peptides based on DNA sequences
-  ensembl-downloader       Command to download the ensembl information
-  generate-decoy           Create decoy protein sequences. Each protein is
-                           reversed and the cleavage sites switched with
-                           preceding amino acid. Peptides are checked for
-                           existence in target sequences if foundthe tool will
-                           attempt to shuffle them. James.Wright@sanger.ac.uk
-                           2015
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   proteindb
+  cosmic-downloader(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$Command to download the cosmic mutation database
+  cosmic-to-proteindb(pgatk) animeshs@DMED7596:~/f/py-pgatk$  Command to translate Cosmic mutation data into
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   proteindb
+  dnaseq-to-proteindb(pgatk) animeshs@DMED7596:~/f/py-pgatk$  Generate peptides based on DNA sequences
+  ensembl-downloader(pgatk) animeshs@DMED7596:~/f/py-pgatk$   Command to download the ensembl information
+  generate-decoy(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   Create decoy protein sequences. Each protein is
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   reversed and the cleavage sites switched with
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   preceding amino acid. Peptides are checked for
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   existence in target sequences if foundthe tool will
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   attempt to shuffle them. James.Wright@sanger.ac.uk
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   2015
   threeframe-translation   Command to perform 3frame translation
-  vcf-to-proteindb         Generate peptides based on DNA variants from
-                           ENSEMBL VEP VCF files
+  vcf-to-proteindb(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$ Generate peptides based on DNA variants from
+(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$(pgatk) animeshs@DMED7596:~/f/py-pgatk$   ENSEMBL VEP VCF files
 
 ```
 
